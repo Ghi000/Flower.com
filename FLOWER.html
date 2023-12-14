@@ -23,6 +23,7 @@
       position: absolute;
       top: 0;
       left: 0;
+      transition: transform 0.3s ease; /* Smooth transition for movement */
     }
   </style>
   <title>Sunflower GIF Animation</title>
@@ -33,23 +34,19 @@
   </div>
 
   <script>
-    // Add JavaScript for animation if needed
     const sunflower = document.getElementById('sunflower');
+    const sunflowerContainer = document.getElementById('sunflowerContainer');
 
-    // Example: Move the sunflower around
-    let positionX = 0;
-    let positionY = 0;
+    sunflowerContainer.addEventListener('mousemove', (e) => {
+      const x = e.clientX - sunflowerContainer.offsetLeft - sunflower.width / 2;
+      const y = e.clientY - sunflowerContainer.offsetTop - sunflower.height / 2;
 
-    function animateSunflower() {
-      positionX += 2; // Adjust the speed
-      positionY += 1;
+      sunflower.style.transform = `translate(${x}px, ${y}px)`;
+    });
 
-      sunflower.style.transform = `translate(${positionX}px, ${positionY}px)`;
-
-      requestAnimationFrame(animateSunflower);
-    }
-
-    animateSunflower();
+    sunflowerContainer.addEventListener('mouseleave', () => {
+      sunflower.style.transform = 'translate(0, 0)';
+    });
   </script>
 </body>
 </html>
