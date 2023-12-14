@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #87CEEB; /* Light Blue background */
+    }
+
+    #sunflowerContainer {
+      position: relative;
+    }
+
+    #sunflower {
+      width: 300px; /* Adjust the size based on your sunflower image */
+      height: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+  <title>Sunflower GIF Animation</title>
+</head>
+<body>
+  <div id="sunflowerContainer">
+    <img id="sunflower" src="https://cdn.dribbble.com/users/4091017/screenshots/14096527/media/861bf42b3b26e482a3a444f1cea5437c.gif" alt="Sunflower GIF">
+  </div>
+
+  <script>
+    // Add JavaScript for animation if needed
+    const sunflower = document.getElementById('sunflower');
+
+    // Example: Move the sunflower around
+    let positionX = 0;
+    let positionY = 0;
+
+    function animateSunflower() {
+      positionX += 2; // Adjust the speed
+      positionY += 1;
+
+      sunflower.style.transform = `translate(${positionX}px, ${positionY}px)`;
+
+      requestAnimationFrame(animateSunflower);
+    }
+
+    animateSunflower();
+  </script>
+</body>
+</html>
