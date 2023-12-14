@@ -14,7 +14,7 @@
     }
 
     #sunflowerContainer {
-      position: center;
+      position: relative;
     }
 
     #sunflower {
@@ -24,29 +24,26 @@
       top: 0;
       left: 0;
       transition: transform 0.3s ease; /* Smooth transition for movement */
+      cursor: pointer;
     }
   </style>
-  <title>Sunflower GIF Animation</title>
+  <title>Sunflower Message and Animation</title>
 </head>
 <body>
   <div id="sunflowerContainer">
-    <img id="sunflower" src="https://cdn.dribbble.com/users/4091017/screenshots/14096527/media/861bf42b3b26e482a3a444f1cea5437c.gif" alt="Sunflower GIF">
+    <img id="sunflower" src="https://cdn.dribbble.com/users/4091017/screenshots/14096527/media/861bf42b3b26e482a3a444f1cea5437c.gif" alt="Sunflower GIF" onclick="moveSunflower()">
   </div>
 
   <script>
     const sunflower = document.getElementById('sunflower');
     const sunflowerContainer = document.getElementById('sunflowerContainer');
 
-    sunflowerContainer.addEventListener('mousemove', (e) => {
-      const x = e.clientX - sunflowerContainer.offsetLeft - sunflower.width / 2;
-      const y = e.clientY - sunflowerContainer.offsetTop - sunflower.height / 2;
+    function moveSunflower() {
+      const newX = Math.random() * (window.innerWidth - sunflower.width);
+      const newY = Math.random() * (window.innerHeight - sunflower.height);
 
-      sunflower.style.transform = `translate(${x}px, ${y}px)`;
-    });
-
-    sunflowerContainer.addEventListener('mouseleave', () => {
-      sunflower.style.transform = 'translate(0, 0)';
-    });
+      sunflower.style.transform = `translate(${newX}px, ${newY}px)`;
+    }
   </script>
 </body>
 </html>
